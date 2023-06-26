@@ -4,11 +4,26 @@
 
 .thDiv {
     width: 90%;
+    border: 1px solid black;
 }
 
 .table-header {
-    width: 45%;
+    width: 30%;
     border: 1px solid black;
     font-size: small;
     color: black
+}
+
+.table-data {
+    width: 30%;
+    border: 1px solid black;
+    font-size: small;
+    color: black;
+
+}
+
+.data-input {
+    width: 70%;
+    text-align: center;
+    margin-left: 10%;
 }
