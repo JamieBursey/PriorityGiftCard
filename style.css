@@ -1,0 +1,14 @@
+.header {
+    align-items: center;
+}
+
+.thDiv {
+    width: 90%;
+}
+
+.table-header {
+    width: 45%;
+    border: 1px solid black;
+    font-size: small;
+    color: black
+}
