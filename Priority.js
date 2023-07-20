@@ -57,7 +57,6 @@ addRowButton.onclick = () => {
 
 addRowButton.disabled = true;
 tableElement.style.pointerEvents = "none";
-
 const logInDiv = document.getElementById("login-div");
 const loginForm = document.getElementById("login-form");
 const inputUserName = document.createElement("input");
