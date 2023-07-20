@@ -1,4 +1,4 @@
-const tableHeader = ["Name", "Treatment", "Date", "Price", "Number", "Claimed"];
+const tableHeader = ["Name", "Therapist", "Treatment", "Date", "Price", "Number", "Claimed"];
 const tableElement = document.getElementById("tableElement");
 let inputDataArray = [];
 
@@ -33,7 +33,9 @@ const addRow = (values) => {
             deleteButton.addEventListener("click", () => {
                 if (confirm("Are you sure you want to delete this row?")) {
                     tableElement.removeChild(tableRow);
-                    updateLocalStorage(tableRow.rowIndex - 1, null);
+                    const rowIndex = tableRow.rowIndex - 1;
+                    inputDataArray.splice(rowIndex, 1);
+                    updateLocalStorage();
                 }
             });
             tableData.appendChild(deleteButton);

@@ -3,22 +3,24 @@
 }
 
 .thDiv {
-    width: 90%;
+    width: 99%;
     border: 1px solid black;
 }
 
 .table-header {
-    width: 30%;
+    width: fit-content;
     border: 1px solid black;
     font-size: small;
     color: black
 }
 
 .table-data {
-    width: 30%;
+    width: fit-content;
     border: 1px solid black;
     font-size: small;
     color: black;
+    align-items: center;
+    justify-content: center;
 
 }
 
