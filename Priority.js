@@ -1,6 +1,7 @@
 const tableHeader = ["Name", "Therapist", "Treatment", "Date", "Price", "Number", "Claimed"];
 const tableElement = document.getElementById("tableElement");
 let inputDataArray = [];
+let currentRowID = 0;
 
 const headerRow = document.createElement("tr");
 tableElement.appendChild(headerRow);
@@ -14,6 +15,11 @@ tableHeader.forEach((item) => {
 
 const addRow = (values) => {
     const tableRow = document.createElement("tr");
+    const rowID = currentRowID++;
+    tableRow.setAttribute("data-row-id", rowID);
+
+    const rowValues = values.length === tableHeader.length ? values : Array(tableHeader.length).fill("");
+    inputDataArray.push(rowValues);
 
     tableHeader.forEach((item, index) => {
         const tableData = document.createElement("td");
@@ -32,22 +38,25 @@ const addRow = (values) => {
             deleteButton.innerHTML = "Delete";
             deleteButton.addEventListener("click", () => {
                 if (confirm("Are you sure you want to delete this row?")) {
-                    tableElement.removeChild(tableRow);
                     const rowIndex = tableRow.rowIndex - 1;
                     inputDataArray.splice(rowIndex, 1);
+                    tableElement.removeChild(tableRow);
                     updateLocalStorage();
                 }
             });
             tableData.appendChild(deleteButton);
         } else {
-            dataInput.value = values[index] || "";
+            dataInput.value = rowValues[index];
             dataInput.addEventListener("input", () => {
-                updateLocalStorage(tableRow.rowIndex - 1, getRowInputValues(tableRow));
+                updateLocalStorage(rowID, getRowInputValues(tableRow));
             });
         }
     });
     tableElement.appendChild(tableRow);
+
+    updateLocalStorage();
 };
+
 
 const addRowButton = document.getElementById("addRow");
 addRowButton.innerHTML = "Add Row";
