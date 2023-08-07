@@ -1,4 +1,4 @@
-const tableHeader = ["Name", "Therapist", "Treatment", "Date", "Value", "Number", "Claimed", "Delete"];
+const tableHeader = ["Name", "Therapist", "Date", "Value", "Number", "Claimed", "Delete"];
 const tableElement = document.getElementById("tableElement");
 let inputDataArray = [];
 
