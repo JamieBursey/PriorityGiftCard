@@ -13,7 +13,7 @@ tableHeader.forEach((item) => {
 });
 
 const addRow = (values) => {
-    const tableRowObject = {};
+    const tableRowObject = {}
     tableHeader.forEach((item, index) => {
         tableRowObject[item] = values[index] || "";
     });
@@ -45,11 +45,11 @@ const renderRows = () => {
             if (item === "Delete") {
                 const deleteButton = document.createElement("button"); // Create the delete button
                 deleteButton.innerHTML = "Delete";
-                deleteButton.addEventListener("click", () => {
+                deleteButton.onclick = () => {
                     if (confirm("Are you sure you want to delete this row?")) {
                         deleteRow(index);
                     }
-                });
+                };
                 tableData.appendChild(deleteButton);
             } else {
                 const dataInput = document.createElement("input");
@@ -84,18 +84,18 @@ addRowButton.disabled = true;
 tableElement.style.pointerEvents = "none";
 const logInDiv = document.getElementById("login-div");
 const loginForm = document.getElementById("login-form");
-const inputUserName = document.createElement("input");
-inputUserName.type = "text";
-inputUserName.placeholder = "User Name";
+const inputPin = document.createElement("input");
+inputPin.type = "text";
+inputPin.placeholder = "User Name";
 const loginSubmit = document.createElement("button");
 loginSubmit.innerHTML = "Submit";
-loginForm.appendChild(inputUserName);
+loginForm.appendChild(inputPin);
 loginForm.appendChild(loginSubmit);
 
 loginSubmit.onclick = (event) => {
     event.preventDefault();
 
-    if (inputUserName.value === "test") {
+    if (inputPin.value === "072021") {
         tableElement.style.pointerEvents = "auto";
         addRowButton.disabled = false;
 
@@ -112,7 +112,7 @@ const updateLocalStorage = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("datainput") && localStorage.getItem("loggedIn") === "true") {
-        inputUserName.value = "test";
+        inputPin.value = "072021";
         loginSubmit.click();
     }
 });
