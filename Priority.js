@@ -43,7 +43,7 @@ const renderRows = () => {
             tableData.classList.add("table-data");
 
             if (item === "Delete") {
-                const deleteButton = document.createElement("button"); // Create the delete button
+                const deleteButton = document.createElement("button");
                 deleteButton.innerHTML = "Delete";
                 deleteButton.onclick = () => {
                     if (confirm("Are you sure you want to delete this row?")) {
@@ -86,7 +86,7 @@ const logInDiv = document.getElementById("login-div");
 const loginForm = document.getElementById("login-form");
 const inputPin = document.createElement("input");
 inputPin.type = "text";
-inputPin.placeholder = "User Name";
+inputPin.placeholder = "Password";
 const loginSubmit = document.createElement("button");
 loginSubmit.innerHTML = "Submit";
 loginForm.appendChild(inputPin);
